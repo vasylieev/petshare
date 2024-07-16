@@ -26,7 +26,7 @@ class _ViewState extends State<_View> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await Future.delayed(const Duration(seconds: 1), () {
         if (mounted) {
-          context.go(AppPages.toHomeScreen);
+          context.go(AppPages.toDashboardScreen);
         }
       });
     });
