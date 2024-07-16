@@ -29,11 +29,12 @@ class _AppNavigationBarState extends State<AppNavigationBar> {
           widget.onTap(_currentIndex);
         });
       },
-      unselectedItemColor: AppColors.darkGrey,
+      unselectedItemColor: AppColors.grey,
       selectedItemColor: AppColors.accent,
       selectedFontSize: 12,
-      selectedLabelStyle: AppTextStyles.size12MediumDarkGrey,
+      selectedLabelStyle: AppTextStyles.size12MSemiBoldDarkGrey,
       unselectedLabelStyle: AppTextStyles.size12MediumAccent,
+      backgroundColor: AppColors.white,
       items: const [
         BottomNavigationBarItem(
           icon: _BarItem(icon: AppIcons.cat),
@@ -46,8 +47,8 @@ class _AppNavigationBarState extends State<AppNavigationBar> {
           label: 'Search',
         ),
         BottomNavigationBarItem(
-          icon: _BarItem(icon: AppIcons.circleUserRound),
-          activeIcon: _ActiveBarItem(icon: AppIcons.circleUserRound),
+          icon: _BarItem(icon: AppIcons.userRound),
+          activeIcon: _ActiveBarItem(icon: AppIcons.userRound),
           label: 'Me',
         ),
       ],
@@ -64,7 +65,7 @@ class _BarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppIcon(
       icon,
-      color: AppColors.darkGrey,
+      color: AppColors.grey,
     );
   }
 }
