@@ -16,6 +16,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   final _pages = const [
     HomeScreen(),
     SearchScreen(),
+    HomeScreen(),
   ];
 
   @override
