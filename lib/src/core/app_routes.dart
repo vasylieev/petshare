@@ -1,9 +1,11 @@
 import 'package:go_router/go_router.dart';
+import 'package:petshare/src/features/dashboard/view/dashboard_screen.dart';
 import 'package:petshare/src/features/home/view/home_screen.dart';
 import 'package:petshare/src/features/splash/view/splash_screen.dart';
 
 sealed class AppPages {
   static const toSplashScreen = '/';
+  static const toDashboardScreen = '/toDashboardScreen';
   static const toHomeScreen = '/toHomeScreen';
 }
 
@@ -17,6 +19,10 @@ sealed class AppRoutes {
     GoRoute(
       path: AppPages.toSplashScreen,
       builder: (_, __) => const SplashScreen(),
+    ),
+    GoRoute(
+      path: AppPages.toDashboardScreen,
+      builder: (_, __) => const DashboardScreen(),
     ),
     GoRoute(
       path: AppPages.toHomeScreen,
