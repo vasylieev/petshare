@@ -24,6 +24,11 @@ sealed class AppTextStyles {
     color: AppColors.grey,
     fontWeight: _medium,
   );
+  static const TextStyle size14MediumDarkGrey = TextStyle(
+    fontSize: _size14,
+    color: AppColors.darkGrey,
+    fontWeight: _medium,
+  );
   static const TextStyle size12MediumAccent = TextStyle(
     fontSize: _size12,
     color: AppColors.accent,

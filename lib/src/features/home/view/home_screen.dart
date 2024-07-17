@@ -65,6 +65,14 @@ class _PostsListView extends StatelessWidget {
           imageURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/1200px-Cat_August_2010-4.jpg',
           likedIds: [],
         ),
+        PostModel(
+          authorFullName: 'Denys Vasyliev',
+          authorAvatarURL: 'https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+          category: PostCategory.dogs,
+          text: 'I am confident that my experience and skills align well with the responsibilities of this role, such as designing and scaling mobile applications, implementing cross-platform UI functionality, writing high-quality code, and integrating with third-party services. I am also keen to share my knowledge with team members and effectively communicate with managers and clients.',
+          imageURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/1200px-Cat_August_2010-4.jpg',
+          likedIds: [],
+        ),
       ],
     );
   }

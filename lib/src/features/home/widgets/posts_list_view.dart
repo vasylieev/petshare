@@ -22,7 +22,7 @@ class PostsListView extends StatelessWidget {
         child: ListView.separated(
           shrinkWrap: true,
           itemCount: posts.length,
-          separatorBuilder: (_, __) => const SizedBox(height: 10),
+          separatorBuilder: (_, __) => const SizedBox(height: 30),
           itemBuilder: (_, index) => _PostCard(post: posts[index]),
         ),
         //onRefresh: () async {},
@@ -38,69 +38,100 @@ class _PostCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.sizeOf(context).width,
-      color: AppColors.white,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(15),
-            child: Column(
-              children: [
-                Row(
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      clipBehavior: Clip.none,
+      children: [
+        Container(
+          width: MediaQuery.sizeOf(context).width,
+          color: AppColors.white,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child: Column(
                   children: [
-                    CircleAvatar(
-                      backgroundImage: NetworkImage(post.authorAvatarURL),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            CircleAvatar(
+                              backgroundImage: NetworkImage(
+                                post.authorAvatarURL,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            Text(
+                              post.authorFullName,
+                              style: AppTextStyles.size14MediumDarkGrey,
+                            ),
+                          ],
+                        ),
+                        const AppIcon(
+                          AppIcons.ellipsis,
+                          color: AppColors.grey,
+                        ),
+                      ],
                     ),
-                    const SizedBox(width: 10),
-                    Text(post.authorFullName),
+                    const SizedBox(height: 10),
+                    Text(
+                      post.text,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ],
                 ),
-                const SizedBox(height: 10),
-                Text(
-                  post.text,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
-            ),
+              ),
+              NetworkImageWrapper(
+                post.imageURL,
+                width: MediaQuery.sizeOf(context).width,
+                height: 220,
+                fit: BoxFit.cover,
+              ),
+            ],
           ),
-          NetworkImageWrapper(
-            post.imageURL,
-            width: MediaQuery.sizeOf(context).width,
+        ),
+        Positioned(
+          bottom: -20,
+          left: 15,
+          child: _LikeButton(likes: post.likedIds.length),
+        )
+      ],
+    );
+  }
+}
+
+class _LikeButton extends StatelessWidget {
+  const _LikeButton({required this.likes});
+
+  final int likes;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 14,
+        vertical: 7,
+      ),
+      decoration: BoxDecoration(
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(30),
+      ),
+      child: Row(
+        children: [
+          const AppIcon(
+            AppIcons.thumbsUp,
+            height: 24,
+            color: AppColors.grey,
           ),
-          Padding(
-            padding: EdgeInsets.all(10),
-            child: Row(
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 15,
-                    vertical: 5,
-                  ),
-                  decoration: BoxDecoration(
-                    color: AppColors.lightGrey,
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Row(
-                    children: [
-                      const AppIcon(
-                        AppIcons.paw15,
-                        height: 20,
-                        color: AppColors.grey,
-                      ),
-                      const SizedBox(width: 10),
-                      Text(
-                        post.likedIds.length.toString(),
-                        style: AppTextStyles.size14MediumGrey,
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          )
+          const SizedBox(width: 7),
+          Text(
+            likes.toString(),
+            style: AppTextStyles.size14MediumGrey,
+          ),
         ],
       ),
     );
