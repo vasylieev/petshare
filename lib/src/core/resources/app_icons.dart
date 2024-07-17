@@ -4,4 +4,5 @@ sealed class AppIcons {
   static const cat = 'assets/icons/cat.png';
   static const userRound = 'assets/icons/user-round.png';
   static const plus = 'assets/icons/plus.png';
+  static const paw15 = 'assets/icons/paw-1.5.png';
 }

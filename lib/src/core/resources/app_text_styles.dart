@@ -3,6 +3,7 @@ import 'package:petshare/src/core/resources/app_colors.dart';
 
 sealed class AppTextStyles {
   static const double _size12 = 12;
+  static const double _size14 = 14;
   static const double _size24 = 24;
 
   static const FontWeight _medium = FontWeight.w500;
@@ -13,20 +14,15 @@ sealed class AppTextStyles {
     color: AppColors.white,
     fontWeight: _medium,
   );
-  static const TextStyle size12MediumDarkGrey = TextStyle(
+  static const TextStyle size12SemiBoldGrey = TextStyle(
     fontSize: _size12,
+    color: AppColors.grey,
+    fontWeight: _semiBold,
+  );
+  static const TextStyle size14MediumGrey = TextStyle(
+    fontSize: _size14,
     color: AppColors.grey,
     fontWeight: _medium,
-  );
-  static const TextStyle size12MSemiBoldDarkGrey = TextStyle(
-    fontSize: _size12,
-    color: AppColors.grey,
-    fontWeight: _semiBold,
-  );
-  static const TextStyle size12MSemiBoldAccent = TextStyle(
-    fontSize: _size12,
-    color: AppColors.accent,
-    fontWeight: _semiBold,
   );
   static const TextStyle size12MediumAccent = TextStyle(
     fontSize: _size12,

@@ -5,18 +5,20 @@ class AppIcon extends StatelessWidget {
   const AppIcon(
     this.icon, {
     this.color = AppColors.black,
+    this.height = 26,
     super.key,
   });
 
   final String icon;
   final Color color;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
     return Image.asset(
       icon,
       color: color,
-      height: 26,
+      height: height,
     );
   }
 }

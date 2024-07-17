@@ -32,7 +32,7 @@ class _AppNavigationBarState extends State<AppNavigationBar> {
       unselectedItemColor: AppColors.grey,
       selectedItemColor: AppColors.accent,
       selectedFontSize: 12,
-      selectedLabelStyle: AppTextStyles.size12MSemiBoldDarkGrey,
+      selectedLabelStyle: AppTextStyles.size12SemiBoldGrey,
       unselectedLabelStyle: AppTextStyles.size12MediumAccent,
       backgroundColor: AppColors.white,
       items: const [
