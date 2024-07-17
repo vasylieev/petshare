@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:petshare/src/core/resources/app_colors.dart';
 
 sealed class AppTextStyles {
+  static const double _size10 = 10;
   static const double _size12 = 12;
   static const double _size14 = 14;
   static const double _size24 = 24;
@@ -33,5 +34,10 @@ sealed class AppTextStyles {
     fontSize: _size12,
     color: AppColors.accent,
     fontWeight: _medium,
+  );
+  static const TextStyle size10SemiBoldAccent = TextStyle(
+    fontSize: _size10,
+    color: AppColors.accent,
+    fontWeight: _semiBold,
   );
 }

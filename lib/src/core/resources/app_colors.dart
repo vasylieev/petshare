@@ -7,4 +7,5 @@ sealed class AppColors {
   static const grey = Color(0xFFA5A5A5);
   static const darkGrey = Color(0xFF737373);
   static const accent = Color(0xFFA685D1);
+  static const lightAccent = Color(0xFFF8F2FF);
 }

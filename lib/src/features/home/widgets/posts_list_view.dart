@@ -10,10 +10,14 @@ import 'package:petshare/src/core/widgets/loading/app_refresh_indicator.dart';
 class PostsListView extends StatelessWidget {
   const PostsListView({
     required this.posts,
+    required this.onTap,
+    required this.onLikePressed,
     super.key,
   });
 
   final List<PostModel> posts;
+  final void Function(PostModel) onTap;
+  final void Function() onLikePressed;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +27,14 @@ class PostsListView extends StatelessWidget {
           shrinkWrap: true,
           itemCount: posts.length,
           separatorBuilder: (_, __) => const SizedBox(height: 30),
-          itemBuilder: (_, index) => _PostCard(post: posts[index]),
+          itemBuilder: (_, index) {
+            final post = posts[index];
+            return _PostCard(
+              post: post,
+              onTap: onTap,
+              onLikePressed: onLikePressed,
+            );
+          },
         ),
         //onRefresh: () async {},
       ),
@@ -32,82 +43,118 @@ class PostsListView extends StatelessWidget {
 }
 
 class _PostCard extends StatelessWidget {
-  const _PostCard({required this.post});
+  const _PostCard({
+    required this.post,
+    required this.onTap,
+    required this.onLikePressed,
+  });
 
   final PostModel post;
+  final void Function(PostModel) onTap;
+  final void Function() onLikePressed;
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.bottomCenter,
-      clipBehavior: Clip.none,
-      children: [
-        Container(
-          width: MediaQuery.sizeOf(context).width,
-          color: AppColors.white,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(15),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                post.authorAvatarURL,
+    return GestureDetector(
+      onTap: () => onTap(post),
+      child: Stack(
+        alignment: Alignment.bottomCenter,
+        clipBehavior: Clip.none,
+        children: [
+          Container(
+            width: MediaQuery.sizeOf(context).width,
+            color: AppColors.white,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              CircleAvatar(
+                                backgroundImage: NetworkImage(
+                                  post.authorAvatarURL,
+                                ),
                               ),
-                            ),
-                            const SizedBox(width: 10),
-                            Text(
-                              post.authorFullName,
-                              style: AppTextStyles.size14MediumDarkGrey,
-                            ),
-                          ],
-                        ),
-                        const AppIcon(
-                          AppIcons.ellipsis,
-                          color: AppColors.grey,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      post.text,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ],
+                              const SizedBox(width: 10),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    post.authorFullName,
+                                    style: AppTextStyles.size14MediumDarkGrey,
+                                  ),
+                                  const SizedBox(height: 1),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 7,
+                                      vertical: 1,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.lightAccent,
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Text(
+                                      post.category.name.toUpperCase(),
+                                      style: AppTextStyles.size10SemiBoldAccent,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                          const AppIcon(
+                            AppIcons.ellipsis,
+                            color: AppColors.grey,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        post.text,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              NetworkImageWrapper(
-                post.imageURL,
-                width: MediaQuery.sizeOf(context).width,
-                height: 220,
-                fit: BoxFit.cover,
-              ),
-            ],
+                NetworkImageWrapper(
+                  post.imageURL,
+                  width: MediaQuery.sizeOf(context).width,
+                  height: 220,
+                  fit: BoxFit.cover,
+                ),
+              ],
+            ),
           ),
-        ),
-        Positioned(
-          bottom: -20,
-          left: 15,
-          child: _LikeButton(likes: post.likedIds.length),
-        )
-      ],
+          Positioned(
+            bottom: -20,
+            left: 15,
+            child: _LikeButton(
+              likes: post.likedIds.length,
+              onPressed: onLikePressed,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
 
 class _LikeButton extends StatelessWidget {
-  const _LikeButton({required this.likes});
+  const _LikeButton({
+    required this.likes,
+    required this.onPressed,
+  });
 
   final int likes;
+  final void Function() onPressed;
 
   @override
   Widget build(BuildContext context) {

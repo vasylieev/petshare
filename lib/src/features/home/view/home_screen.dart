@@ -74,6 +74,8 @@ class _PostsListView extends StatelessWidget {
           likedIds: [],
         ),
       ],
+      onTap: (post) {},
+      onLikePressed: () {},
     );
   }
 }
