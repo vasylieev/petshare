@@ -63,7 +63,16 @@ class _PostCard extends StatelessWidget {
         children: [
           Container(
             width: MediaQuery.sizeOf(context).width,
-            color: AppColors.white,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  AppColors.white,
+                  AppColors.lightGrey,
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -124,18 +133,24 @@ class _PostCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                NetworkImageWrapper(
-                  post.imageURL,
-                  width: MediaQuery.sizeOf(context).width,
-                  height: 220,
-                  fit: BoxFit.cover,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(5),
+                    child: NetworkImageWrapper(
+                      post.imageURL,
+                      width: MediaQuery.sizeOf(context).width,
+                      height: 220,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
               ],
             ),
           ),
           Positioned(
             bottom: -20,
-            left: 15,
+            left: 20,
             child: _LikeButton(
               likes: post.likedIds.length,
               onPressed: onLikePressed,
