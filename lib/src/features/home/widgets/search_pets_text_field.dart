@@ -16,7 +16,7 @@ class SearchPetsTextField extends StatelessWidget {
       child: AppTextField(
         onChanged: (value) {},
         onTap: onTap,
-        hintText: 'Search pets',
+        hintText: 'Search for pets',
         prefixIcon: AppIcons.search,
       ),
     );

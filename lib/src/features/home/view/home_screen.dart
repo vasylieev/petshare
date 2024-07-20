@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:petshare/src/core/resources/app_colors.dart';
 import 'package:petshare/src/core/widgets/paddings/app_default_background.dart';
 import 'package:petshare/src/core/widgets/slivers/sliver_sized_box.dart';
+import 'package:petshare/src/features/home/models/pet_model.dart';
 import 'package:petshare/src/features/home/widgets/home_resources.dart';
+import 'package:petshare/src/features/home/widgets/newest_pets_list_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -25,10 +27,17 @@ class _View extends StatelessWidget {
         slivers: [
           SliverSizedBox(height: 30),
           _SearchPetsTextField(),
-          SliverSizedBox(height: 20),
+          SliverSizedBox(height: 25),
           CategoriesText(),
           SliverSizedBox(height: 10),
           _PetsCategories(),
+          SliverSizedBox(height: 20),
+          _CategoriesPetsListView(),
+          SliverSizedBox(height: 30),
+          NewestPetsText(),
+          SliverSizedBox(height: 10),
+          _NewestPetsListView(),
+          SliverSizedBox(height: 20),
         ],
       ),
     );
@@ -63,5 +72,71 @@ class _PetsCategories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PetsCategories();
+  }
+}
+
+class _CategoriesPetsListView extends StatelessWidget {
+  const _CategoriesPetsListView();
+
+  @override
+  Widget build(BuildContext context) {
+    return CategoriesPetsListView(
+      pets: [
+        PetModel(
+          name: 'Sam',
+          years: 3,
+          imageURL:
+              'https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg',
+          breed: 'Spaniel',
+        ),
+        PetModel(
+          name: 'Sam',
+          years: 3,
+          imageURL:
+              'https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*',
+          breed: 'Spaniel',
+        ),
+        PetModel(
+          name: 'Sam',
+          years: 3,
+          imageURL:
+              'https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*',
+          breed: 'Spaniel',
+        ),
+      ],
+    );
+  }
+}
+
+class _NewestPetsListView extends StatelessWidget {
+  const _NewestPetsListView();
+
+  @override
+  Widget build(BuildContext context) {
+    return NewestPetsListView(
+      pets: [
+        PetModel(
+          name: 'Sam',
+          years: 3,
+          imageURL:
+              'https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg',
+          breed: 'Spaniel',
+        ),
+        PetModel(
+          name: 'Sam',
+          years: 3,
+          imageURL:
+              'https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*',
+          breed: 'Spaniel',
+        ),
+        PetModel(
+          name: 'Sam',
+          years: 3,
+          imageURL:
+              'https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*',
+          breed: 'Spaniel',
+        ),
+      ],
+    );
   }
 }

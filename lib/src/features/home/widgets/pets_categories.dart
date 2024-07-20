@@ -38,7 +38,7 @@ class PetsCategories extends StatelessWidget {
                     AppIcons.cat,
                     color: index == 0 ? AppColors.white : AppColors.grey,
                   ),
-                  SizedBox(width: 4),
+                  const SizedBox(width: 4),
                   Text(
                     'Cats',
                     style: index == 0 ? AppTextStyles.size14SemiBoldWhite : AppTextStyles.size14SemiBoldGrey,

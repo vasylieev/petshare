@@ -1,10 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:petshare/src/core/widgets/loading/image_loading_indicator.dart';
+import 'package:petshare/src/core/resources/app_colors.dart';
+import 'package:petshare/src/core/widgets/loading/loading_indicator.dart';
 
 class NetworkImageWrapper extends StatelessWidget {
   const NetworkImageWrapper(
-    this.image, {this.width,
+    this.image, {
+    this.width,
     this.height,
     this.fit,
     this.imageProvider = false,
@@ -26,7 +28,11 @@ class NetworkImageWrapper extends StatelessWidget {
       imageUrl: image,
       fit: fit,
       progressIndicatorBuilder: (_, __, ___) {
-        return const ImageLoadingIndicator();
+        return const Center(
+          child: LoadingIndicator(
+            color: AppColors.darkGrey,
+          ),
+        );
       },
     );
   }
