@@ -25,7 +25,7 @@ class AppDefaultBackground extends StatelessWidget {
       backgroundColor: backgroundColor,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: padding ? 15 : 0),
+          padding: EdgeInsets.symmetric(horizontal: padding ? 20 : 0),
           child: child,
         ),
       ),

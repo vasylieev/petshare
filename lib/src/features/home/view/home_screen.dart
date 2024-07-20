@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:petshare/src/core/resources/app_colors.dart';
 import 'package:petshare/src/core/widgets/paddings/app_default_background.dart';
-import 'package:petshare/src/features/home/models/post_model.dart';
+import 'package:petshare/src/core/widgets/slivers/sliver_sized_box.dart';
+import 'package:petshare/src/features/home/models/pet_model.dart';
 import 'package:petshare/src/features/home/widgets/home_resources.dart';
+import 'package:petshare/src/features/home/widgets/newest_pets_list_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -20,11 +22,22 @@ class _View extends StatelessWidget {
   Widget build(BuildContext context) {
     return const AppDefaultBackground(
       backgroundColor: AppColors.lightGrey,
-      padding: false,
       floatingActionButton: _AddPetButton(),
       child: CustomScrollView(
         slivers: [
-          _PostsListView(),
+          SliverSizedBox(height: 30),
+          _SearchPetsTextField(),
+          SliverSizedBox(height: 25),
+          CategoriesText(),
+          SliverSizedBox(height: 10),
+          _PetsCategories(),
+          SliverSizedBox(height: 20),
+          _CategoriesPetsListView(),
+          SliverSizedBox(height: 30),
+          NewestPetsText(),
+          SliverSizedBox(height: 10),
+          _NewestPetsListView(),
+          SliverSizedBox(height: 20),
         ],
       ),
     );
@@ -42,49 +55,88 @@ class _AddPetButton extends StatelessWidget {
   }
 }
 
-class _PostsListView extends StatelessWidget {
-  const _PostsListView();
+class _SearchPetsTextField extends StatelessWidget {
+  const _SearchPetsTextField();
 
   @override
   Widget build(BuildContext context) {
-    return PostsListView(
-      posts: [
-        PostModel(
-          authorFullName: 'Denys Vasyliev',
-          authorAvatarURL:
-              'https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-          category: PostCategory.dogs,
-          text:
-              'I am confident that my experience and skills align well with the responsibilities of this role, such as designing and scaling mobile applications, implementing cross-platform UI functionality, writing high-quality code, and integrating with third-party services. I am also keen to share my knowledge with team members and effectively communicate with managers and clients.',
+    return SearchPetsTextField(
+      onTap: () {},
+    );
+  }
+}
+
+class _PetsCategories extends StatelessWidget {
+  const _PetsCategories();
+
+  @override
+  Widget build(BuildContext context) {
+    return PetsCategories();
+  }
+}
+
+class _CategoriesPetsListView extends StatelessWidget {
+  const _CategoriesPetsListView();
+
+  @override
+  Widget build(BuildContext context) {
+    return CategoriesPetsListView(
+      pets: [
+        PetModel(
+          name: 'Sam',
+          years: 3,
           imageURL:
-              'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/1200px-Cat_August_2010-4.jpg',
-          likedIds: [],
+              'https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg',
+          breed: 'Spaniel',
         ),
-        PostModel(
-          authorFullName: 'Denys Vasyliev',
-          authorAvatarURL:
-              'https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-          category: PostCategory.dogs,
-          text:
-              'I am confident that my experience and skills align well with the responsibilities of this role, such as designing and scaling mobile applications, implementing cross-platform UI functionality, writing high-quality code, and integrating with third-party services. I am also keen to share my knowledge with team members and effectively communicate with managers and clients.',
+        PetModel(
+          name: 'Sam',
+          years: 3,
           imageURL:
-              'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/1200px-Cat_August_2010-4.jpg',
-          likedIds: [],
+              'https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*',
+          breed: 'Spaniel',
         ),
-        PostModel(
-          authorFullName: 'Denys Vasyliev',
-          authorAvatarURL:
-              'https://images.pexels.com/photos/35537/child-children-girl-happy.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-          category: PostCategory.dogs,
-          text:
-              'I am confident that my experience and skills align well with the responsibilities of this role, such as designing and scaling mobile applications, implementing cross-platform UI functionality, writing high-quality code, and integrating with third-party services. I am also keen to share my knowledge with team members and effectively communicate with managers and clients.',
+        PetModel(
+          name: 'Sam',
+          years: 3,
           imageURL:
-              'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/1200px-Cat_August_2010-4.jpg',
-          likedIds: [],
+              'https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*',
+          breed: 'Spaniel',
         ),
       ],
-      onTap: (post) {},
-      onLikePressed: () {},
+    );
+  }
+}
+
+class _NewestPetsListView extends StatelessWidget {
+  const _NewestPetsListView();
+
+  @override
+  Widget build(BuildContext context) {
+    return NewestPetsListView(
+      pets: [
+        PetModel(
+          name: 'Sam',
+          years: 3,
+          imageURL:
+              'https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg',
+          breed: 'Spaniel',
+        ),
+        PetModel(
+          name: 'Sam',
+          years: 3,
+          imageURL:
+              'https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*',
+          breed: 'Spaniel',
+        ),
+        PetModel(
+          name: 'Sam',
+          years: 3,
+          imageURL:
+              'https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*',
+          breed: 'Spaniel',
+        ),
+      ],
     );
   }
 }
