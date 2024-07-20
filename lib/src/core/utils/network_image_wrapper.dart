@@ -30,7 +30,7 @@ class NetworkImageWrapper extends StatelessWidget {
       progressIndicatorBuilder: (_, __, ___) {
         return const Center(
           child: LoadingIndicator(
-            color: AppColors.darkGrey,
+            color: AppColors.grey,
           ),
         );
       },
