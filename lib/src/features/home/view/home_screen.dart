@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:petshare/src/core/app_routes.dart';
 import 'package:petshare/src/core/resources/app_colors.dart';
-import 'package:petshare/src/core/widgets/paddings/app_default_background.dart';
+import 'package:petshare/src/core/widgets/backgrounds/app_default_background.dart';
 import 'package:petshare/src/core/widgets/slivers/sliver_sized_box.dart';
 import 'package:petshare/src/features/home/models/pet_model.dart';
 import 'package:petshare/src/features/home/widgets/home_resources.dart';
@@ -22,6 +24,7 @@ class _View extends StatelessWidget {
   Widget build(BuildContext context) {
     return const AppDefaultBackground(
       backgroundColor: AppColors.lightGrey,
+      padding: false,
       floatingActionButton: _AddPetButton(),
       child: CustomScrollView(
         slivers: [
@@ -50,7 +53,7 @@ class _AddPetButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AddPetButton(
-      onPressed: () {},
+      onPressed: () => context.push(AppPages.toAddPetScreen),
     );
   }
 }

@@ -37,18 +37,18 @@ class _AppNavigationBarState extends State<AppNavigationBar> {
       backgroundColor: AppColors.white,
       items: const [
         BottomNavigationBarItem(
-          icon: _BarItem(icon: AppIcons.cat),
-          activeIcon: _ActiveBarItem(icon: AppIcons.cat),
+          icon: _BarIcon(icon: AppIcons.cat),
+          activeIcon: _ActiveBarIcon(icon: AppIcons.cat),
           label: 'Pets',
         ),
         BottomNavigationBarItem(
-          icon: _BarItem(icon: AppIcons.search),
-          activeIcon: _ActiveBarItem(icon: AppIcons.search),
-          label: 'Search',
+          icon: _BarIcon(icon: AppIcons.heart),
+          activeIcon: _ActiveBarIcon(icon: AppIcons.heart),
+          label: 'Favorites',
         ),
         BottomNavigationBarItem(
-          icon: _BarItem(icon: AppIcons.userRound),
-          activeIcon: _ActiveBarItem(icon: AppIcons.userRound),
+          icon: _BarIcon(icon: AppIcons.userRound),
+          activeIcon: _ActiveBarIcon(icon: AppIcons.userRound),
           label: 'Me',
         ),
       ],
@@ -56,8 +56,8 @@ class _AppNavigationBarState extends State<AppNavigationBar> {
   }
 }
 
-class _BarItem extends StatelessWidget {
-  const _BarItem({required this.icon});
+class _BarIcon extends StatelessWidget {
+  const _BarIcon({required this.icon});
 
   final String icon;
 
@@ -70,8 +70,8 @@ class _BarItem extends StatelessWidget {
   }
 }
 
-class _ActiveBarItem extends StatelessWidget {
-  const _ActiveBarItem({required this.icon});
+class _ActiveBarIcon extends StatelessWidget {
+  const _ActiveBarIcon({required this.icon});
 
   final String icon;
 

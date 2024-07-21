@@ -7,5 +7,9 @@ sealed class AppThemes {
     useMaterial3: false,
     scaffoldBackgroundColor: AppColors.white,
     fontFamily: AppConst.poppins,
+    colorScheme: ColorScheme.fromSeed(
+      primary: AppColors.accent,
+      seedColor: AppColors.accent,
+    ),
   );
 }

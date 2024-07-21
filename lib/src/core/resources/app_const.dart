@@ -1,3 +1,3 @@
 sealed class AppConst {
-  static String poppins = 'Poppins';
+  static const String poppins = 'Poppins';
 }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:petshare/src/features/dashboard/widgets/app_navigation_bar.dart';
 import 'package:petshare/src/features/home/view/home_screen.dart';
-import 'package:petshare/src/features/search/view/search_screen.dart';
+import 'package:petshare/src/features/my_profile/view/my_profile_screen.dart';
+import 'package:petshare/src/features/favorites/view/favorites_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -15,8 +16,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   final _pages = const [
     HomeScreen(),
-    SearchScreen(),
-    HomeScreen(),
+    FavoritesScreen(),
+    MyProfileScreen(),
   ];
 
   @override
