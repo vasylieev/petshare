@@ -9,7 +9,7 @@ class SignInText extends StatelessWidget {
     return const Align(
       alignment: Alignment.center,
       child: Text(
-        'Sign In',
+        'Sign In to your account',
         style: AppTextStyles.size24SemiBoldBlack,
       ),
     );

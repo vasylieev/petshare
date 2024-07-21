@@ -31,6 +31,7 @@ class _PetCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 160,
+      margin: const EdgeInsets.symmetric(horizontal: 15),
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: AppColors.white,

@@ -24,6 +24,7 @@ class _View extends StatelessWidget {
   Widget build(BuildContext context) {
     return const AppDefaultBackground(
       backgroundColor: AppColors.lightGrey,
+      padding: false,
       floatingActionButton: _AddPetButton(),
       child: CustomScrollView(
         slivers: [

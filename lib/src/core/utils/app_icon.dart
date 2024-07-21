@@ -6,12 +6,14 @@ class AppIcon extends StatelessWidget {
     this.icon, {
     this.color = AppColors.black,
     this.height = 26,
+    this.scale = 2,
     super.key,
   });
 
   final String icon;
   final Color color;
   final double height;
+  final double scale;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class AppIcon extends StatelessWidget {
       icon,
       color: color,
       height: height,
-      scale: 2,
+      scale: scale,
     );
   }
 }

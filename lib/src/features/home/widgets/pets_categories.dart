@@ -13,6 +13,7 @@ class PetsCategories extends StatelessWidget {
       child: SizedBox(
         height: 44,
         child: ListView.separated(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           clipBehavior: Clip.none,
           scrollDirection: Axis.horizontal,
           itemBuilder: (_, index) {
@@ -22,16 +23,14 @@ class PetsCategories extends StatelessWidget {
                 vertical: 8,
               ),
               decoration: BoxDecoration(
-                color: index == 0 ? AppColors.accent : AppColors.white,
-                borderRadius: BorderRadius.circular(14),
-                boxShadow: [
-                  BoxShadow(
-                    color: AppColors.black.withOpacity(0.02),
-                    blurRadius: 4,
-                    offset: const Offset(0, 3)
-                  )
-                ]
-              ),
+                  color: index == 0 ? AppColors.accent : AppColors.white,
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [
+                    BoxShadow(
+                        color: AppColors.black.withOpacity(0.02),
+                        blurRadius: 4,
+                        offset: const Offset(0, 3))
+                  ]),
               child: Row(
                 children: [
                   AppIcon(
@@ -41,7 +40,9 @@ class PetsCategories extends StatelessWidget {
                   const SizedBox(width: 4),
                   Text(
                     'Dogs',
-                    style: index == 0 ? AppTextStyles.size14SemiBoldWhite : AppTextStyles.size14SemiBoldGrey,
+                    style: index == 0
+                        ? AppTextStyles.size14SemiBoldWhite
+                        : AppTextStyles.size14SemiBoldGrey,
                   ),
                 ],
               ),

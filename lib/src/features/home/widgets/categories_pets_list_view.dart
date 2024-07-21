@@ -18,6 +18,7 @@ class CategoriesPetsListView extends StatelessWidget {
       child: SizedBox(
         height: 224,
         child: ListView.separated(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           clipBehavior: Clip.none,
           scrollDirection: Axis.horizontal,
           itemBuilder: (_, index) => _PetCardMini(pet: pets[index]),
@@ -36,7 +37,7 @@ class _PetCardMini extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context).width / 2 - 30;
+    final size = MediaQuery.sizeOf(context).width / 2 - 25;
     return Container(
       width: size,
       padding: const EdgeInsets.all(10),

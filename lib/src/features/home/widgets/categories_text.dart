@@ -7,11 +7,14 @@ class CategoriesText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SliverToBoxAdapter(
-      child: Align(
-        alignment: Alignment.centerLeft,
-        child: Text(
-          'Categories',
-          style: AppTextStyles.size24SemiBoldBlack,
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 15),
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            'Categories',
+            style: AppTextStyles.size24SemiBoldBlack,
+          ),
         ),
       ),
     );

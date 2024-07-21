@@ -13,11 +13,14 @@ class SearchPetsTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
-      child: AppTextField(
-        onChanged: (value) {},
-        onTap: onTap,
-        hintText: 'Search for pets',
-        prefixIcon: AppIcons.search,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: AppTextField(
+          onChanged: (value) {},
+          onTap: onTap,
+          hintText: 'Search for pets',
+          prefixIcon: AppIcons.search,
+        ),
       ),
     );
   }

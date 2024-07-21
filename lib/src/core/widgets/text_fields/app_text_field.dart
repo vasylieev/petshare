@@ -34,7 +34,7 @@ class AppTextField extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Text(
               label!,
-              style: AppTextStyles.size14MediumBlack,
+              style: AppTextStyles.size12MediumBlack,
             ),
           ),
           const SizedBox(height: 3),
@@ -42,7 +42,7 @@ class AppTextField extends StatelessWidget {
         GestureDetector(
           onTap: onTap,
           child: TextField(
-            style: AppTextStyles.size16MediumBlack,
+            style: AppTextStyles.size14MediumBlack,
             onChanged: onChanged,
             decoration: InputDecoration(
               hintText: hintText,
@@ -51,7 +51,7 @@ class AppTextField extends StatelessWidget {
               fillColor: backgroundColor,
               contentPadding: const EdgeInsets.symmetric(
                 horizontal: 12,
-                vertical: 14,
+                vertical: 16,
               ),
               prefixIcon: prefixIcon != null
                   ? AppIcon(

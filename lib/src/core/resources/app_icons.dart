@@ -7,4 +7,5 @@ sealed class AppIcons {
   static const thumbsUp = 'assets/icons/thumbs-up.png';
   static const ellipsis = 'assets/icons/ellipsis.png';
   static const heart = 'assets/icons/heart.png';
+  static const pets = 'assets/icons/pets.png';
 }

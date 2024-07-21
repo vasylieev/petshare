@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:petshare/src/core/resources/app_colors.dart';
 import 'package:petshare/src/core/widgets/text_fields/app_text_field.dart';
 
-class PhoneNumberTextField extends StatelessWidget {
-  const PhoneNumberTextField({
+class EmailTextField extends StatelessWidget {
+  const EmailTextField({
     required this.onChanged,
     super.key,
   });
@@ -12,9 +13,11 @@ class PhoneNumberTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppTextField(
-      label: 'Phone Number',
+      label: 'Email',
       onChanged: onChanged,
-      hintText: 'Phone Number',
+      hintText: 'example@gmail.com',
+      backgroundColor: AppColors.white,
+      border: true,
       borderRadius: 12,
     );
   }
