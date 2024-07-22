@@ -21,7 +21,7 @@ class SignUpText extends StatelessWidget {
           ),
           TextSpan(
             text: 'Sign Up',
-            style: AppTextStyles.size14BoldAccent,
+            style: AppTextStyles.size14BoldAccentUnderline,
             recognizer: TapGestureRecognizer()..onTap = onTap,
           )
         ],

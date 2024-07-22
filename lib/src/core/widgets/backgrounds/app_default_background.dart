@@ -7,7 +7,7 @@ class AppDefaultBackground extends StatelessWidget {
     this.backgroundColor = AppColors.white,
     this.appBar,
     this.floatingActionButton,
-    this.padding = true,
+    this.padding = 15,
     super.key,
   });
 
@@ -15,7 +15,7 @@ class AppDefaultBackground extends StatelessWidget {
   final PreferredSizeWidget? appBar;
   final Color backgroundColor;
   final Widget? floatingActionButton;
-  final bool padding;
+  final double padding;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class AppDefaultBackground extends StatelessWidget {
       backgroundColor: backgroundColor,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: padding ? 15 : 0),
+          padding: EdgeInsets.symmetric(horizontal: padding),
           child: child,
         ),
       ),

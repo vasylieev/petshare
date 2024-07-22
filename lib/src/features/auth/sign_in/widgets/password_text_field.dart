@@ -18,7 +18,6 @@ class PasswordTextField extends StatelessWidget {
       hintText: '******',
       backgroundColor: AppColors.white,
       border: true,
-      borderRadius: 12,
     );
   }
 }
