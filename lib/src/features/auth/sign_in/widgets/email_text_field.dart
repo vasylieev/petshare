@@ -18,7 +18,6 @@ class EmailTextField extends StatelessWidget {
       hintText: 'example@gmail.com',
       backgroundColor: AppColors.white,
       border: true,
-      borderRadius: 12,
     );
   }
 }

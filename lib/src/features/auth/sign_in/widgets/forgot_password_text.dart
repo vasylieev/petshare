@@ -13,7 +13,7 @@ class ForgotPasswordText extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Text(
       'Forgot Password?',
-      style: AppTextStyles.size14MediumBlackUnderline,
+      style: AppTextStyles.size12MediumBlackUnderline,
     );
   }
 }

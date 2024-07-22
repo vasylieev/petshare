@@ -59,11 +59,12 @@ sealed class AppTextStyles {
     fontWeight: _medium,
     height: 1,
   );
-  static const TextStyle size14BoldAccent = TextStyle(
+  static const TextStyle size14BoldAccentUnderline = TextStyle(
     fontSize: _size14,
     color: AppColors.accent,
     fontWeight: _bold,
     height: 1,
+    decoration: TextDecoration.underline,
   );
   static const TextStyle size16MediumDarkGrey = TextStyle(
     fontSize: _size16,
@@ -76,8 +77,8 @@ sealed class AppTextStyles {
     color: AppColors.black,
     fontWeight: _medium,
   );
-  static const TextStyle size14MediumBlackUnderline = TextStyle(
-    fontSize: _size14,
+  static const TextStyle size12MediumBlackUnderline = TextStyle(
+    fontSize: _size12,
     color: AppColors.black,
     fontWeight: _medium,
     decoration: TextDecoration.underline,
