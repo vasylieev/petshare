@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petshare/src/core/resources/app_colors.dart';
 import 'package:petshare/src/core/resources/app_icons.dart';
 import 'package:petshare/src/core/widgets/text_fields/app_text_field.dart';
 
@@ -20,6 +21,8 @@ class SearchPetsTextField extends StatelessWidget {
           onTap: onTap,
           hintText: 'Search for pets',
           prefixIcon: AppIcons.search,
+          border: false,
+          backgroundColor: AppColors.inputGrey,
         ),
       ),
     );

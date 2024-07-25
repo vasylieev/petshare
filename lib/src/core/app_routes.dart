@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:petshare/src/features/add_pet/view/add_pet_screen.dart';
+import 'package:petshare/src/features/add_post//view/add_post_screen.dart';
 import 'package:petshare/src/features/auth/sign_in/view/sign_in_screen.dart';
 import 'package:petshare/src/features/auth/sign_up/view/sign_up_page.dart';
 import 'package:petshare/src/features/dashboard/view/dashboard_screen.dart';
@@ -12,7 +12,7 @@ sealed class AppPages {
   static const toSignUpScreen = '/toSignUpScreen';
   static const toDashboardScreen = '/toDashboardScreen';
   static const toHomeScreen = '/toHomeScreen';
-  static const toAddPetScreen = '/toAddPetScreen';
+  static const toAddPetScreen = '/toAddPostScreen';
 }
 
 sealed class AppRoutes {
@@ -44,7 +44,7 @@ sealed class AppRoutes {
     ),
     GoRoute(
       path: AppPages.toAddPetScreen,
-      builder: (_, __) => const AddPetScreen(),
+      builder: (_, __) => const AddPostScreen(),
     ),
   ];
 }

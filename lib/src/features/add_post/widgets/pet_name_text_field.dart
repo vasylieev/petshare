@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:petshare/src/core/widgets/text_fields/app_text_field.dart';
 
-class PasswordTextField extends StatelessWidget {
-  const PasswordTextField({
+class PetNameTextField extends StatelessWidget {
+  const PetNameTextField({
     required this.onChanged,
     super.key,
   });
@@ -11,10 +11,11 @@ class PasswordTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppTextField(
-      label: 'Password',
-      onChanged: onChanged,
-      hintText: '******',
+    return SliverToBoxAdapter(
+      child: AppTextField(
+        onChanged: onChanged,
+        label: 'Pet\'s Name',
+      ),
     );
   }
 }

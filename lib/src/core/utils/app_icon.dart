@@ -10,7 +10,7 @@ class AppIcon extends StatelessWidget {
     super.key,
   });
 
-  final String icon;
+  final String? icon;
   final Color color;
   final double height;
   final double scale;
@@ -18,7 +18,7 @@ class AppIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      icon,
+      icon ?? '',
       color: color,
       height: height,
       scale: scale,
