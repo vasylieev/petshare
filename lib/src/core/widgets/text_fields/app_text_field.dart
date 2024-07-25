@@ -10,9 +10,9 @@ class AppTextField extends StatelessWidget {
     this.label,
     this.hintText,
     this.prefixIcon,
-    this.backgroundColor = AppColors.inputGrey,
-    this.border = false,
-    this.borderRadius = 14,
+    this.backgroundColor = AppColors.white,
+    this.border = true,
+    this.multiline = false,
     super.key,
   });
 
@@ -23,7 +23,7 @@ class AppTextField extends StatelessWidget {
   final void Function()? onTap;
   final Color backgroundColor;
   final bool border;
-  final double borderRadius;
+  final bool multiline;
 
   @override
   Widget build(BuildContext context) {
@@ -41,31 +41,36 @@ class AppTextField extends StatelessWidget {
         ],
         GestureDetector(
           onTap: onTap,
-          child: TextField(
-            style: AppTextStyles.size14MediumBlack,
-            onChanged: onChanged,
-            decoration: InputDecoration(
-              hintText: hintText,
-              hintStyle: AppTextStyles.size14MediumDarkGrey,
-              filled: true,
-              fillColor: backgroundColor,
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 12,
-                vertical: 16,
-              ),
-              prefixIcon: prefixIcon != null
-                  ? AppIcon(
-                      prefixIcon!,
-                      color: AppColors.darkGrey,
-                    )
-                  : null,
-              enabledBorder: OutlineInputBorder(
-                borderSide: border ? const BorderSide(color: AppColors.inputGrey) : BorderSide.none,
-                borderRadius: BorderRadius.circular(borderRadius),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: border ? const BorderSide(color: AppColors.accent, width: 2) : BorderSide.none,
-                borderRadius: BorderRadius.circular(borderRadius),
+          child: SizedBox(
+            height: multiline ? 140 : 56,
+            child: TextField(
+              maxLines: multiline ? 10 : 1,
+              keyboardType: multiline ? TextInputType.multiline : null,
+              style: AppTextStyles.size14MediumBlack,
+              onChanged: onChanged,
+              decoration: InputDecoration(
+                hintText: hintText,
+                hintStyle: AppTextStyles.size14MediumDarkGrey,
+                filled: true,
+                fillColor: backgroundColor,
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 16,
+                ),
+                prefixIcon: prefixIcon != null
+                    ? AppIcon(
+                        prefixIcon!,
+                        color: AppColors.darkGrey,
+                      )
+                    : null,
+                enabledBorder: OutlineInputBorder(
+                  borderSide: border ? const BorderSide(color: AppColors.inputGrey) : BorderSide.none,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: border ? const BorderSide(color: AppColors.accent, width: 2) : BorderSide.none,
+                  borderRadius: BorderRadius.circular(15),
+                ),
               ),
             ),
           ),

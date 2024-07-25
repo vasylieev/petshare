@@ -88,6 +88,16 @@ sealed class AppTextStyles {
     color: AppColors.white,
     fontWeight: _medium,
   );
+  static const TextStyle size16SemiBoldAccent = TextStyle(
+    fontSize: _size16,
+    color: AppColors.accent,
+    fontWeight: _semiBold,
+  );
+  static const TextStyle size16MediumBlack = TextStyle(
+    fontSize: _size16,
+    color: AppColors.black,
+    fontWeight: _medium,
+  );
   static const TextStyle size12MediumAccent = TextStyle(
     fontSize: _size12,
     color: AppColors.accent,

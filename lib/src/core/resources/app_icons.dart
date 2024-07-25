@@ -8,4 +8,7 @@ sealed class AppIcons {
   static const ellipsis = 'assets/icons/ellipsis.png';
   static const heart = 'assets/icons/heart.png';
   static const pets = 'assets/icons/pets.png';
+  static const chevronLeft = 'assets/icons/chevron-left.png';
+  static const imagePlus = 'assets/icons/image-plus.png';
+
 }

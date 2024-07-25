@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:petshare/src/core/resources/app_colors.dart';
 import 'package:petshare/src/core/widgets/text_fields/app_text_field.dart';
 
 class EmailTextField extends StatelessWidget {
@@ -16,8 +15,6 @@ class EmailTextField extends StatelessWidget {
       label: 'Email',
       onChanged: onChanged,
       hintText: 'example@gmail.com',
-      backgroundColor: AppColors.white,
-      border: true,
     );
   }
 }

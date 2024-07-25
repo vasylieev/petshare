@@ -8,6 +8,7 @@ class AppDefaultBackground extends StatelessWidget {
     this.appBar,
     this.floatingActionButton,
     this.padding = 15,
+    this.safeTop = true,
     super.key,
   });
 
@@ -16,6 +17,7 @@ class AppDefaultBackground extends StatelessWidget {
   final Color backgroundColor;
   final Widget? floatingActionButton;
   final double padding;
+  final bool safeTop;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class AppDefaultBackground extends StatelessWidget {
       floatingActionButton: floatingActionButton,
       backgroundColor: backgroundColor,
       body: SafeArea(
+        top: safeTop,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: padding),
           child: child,
