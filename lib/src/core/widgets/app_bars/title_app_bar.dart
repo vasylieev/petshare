@@ -27,7 +27,7 @@ class TitleAppBar extends StatelessWidget {
         )
       ),
       width: MediaQuery.sizeOf(context).width,
-      height: 60,
+      height: 50,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Row(
