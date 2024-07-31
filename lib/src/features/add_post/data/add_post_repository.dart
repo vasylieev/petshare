@@ -7,17 +7,25 @@ import 'package:petshare/src/features/add_post/models/post_model.dart';
 
 abstract interface class AddPostRepository {
   Future<void> addPost(PostModel post);
+
+  Future<String?> getUserId();
 }
 
 class AddPostRepositoryImpl implements AddPostRepository {
   AddPostRepositoryImpl({
     required FirebaseFirestore firestore,
+    required FirebaseAuth auth,
     required FirebaseStorage storage,
-  })  : _firestore = firestore,
+  })
+      : _firestore = firestore,
+        _auth = auth,
         _storage = storage;
 
   final FirebaseFirestore _firestore;
+  final FirebaseAuth _auth;
   final FirebaseStorage _storage;
+
+  User? get _currentUser => _auth.currentUser;
 
   @override
   Future<void> addPost(PostModel post) async {
@@ -28,5 +36,10 @@ class AddPostRepositoryImpl implements AddPostRepository {
     } catch (e) {
       debugPrint('addPost error: ${e.toString()}');
     }
+  }
+
+  @override
+  Future<String?> getUserId() async {
+    return _currentUser?.uid;
   }
 }

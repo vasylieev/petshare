@@ -13,7 +13,7 @@ PostModel _$PostModelFromJson(Map<String, dynamic> json) => PostModel(
     );
 
 Map<String, dynamic> _$PostModelToJson(PostModel instance) => <String, dynamic>{
-      'pet': instance.pet,
+      'pet': instance.pet.toJson(),
       'authorId': instance.authorId,
       'description': instance.description,
     };

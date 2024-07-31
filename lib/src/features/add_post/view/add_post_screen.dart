@@ -60,7 +60,9 @@ class _AppBar extends StatelessWidget {
     return TitleAppBar(
       title: 'Add Post',
       actionTitle: 'Post',
-      onActionPressed: () {},
+      onActionPressed: () async {
+        await context.read<AddPostCubit>().addPost();
+      },
     );
   }
 }
@@ -82,7 +84,9 @@ class _PetNameTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PetNameTextField(
-      onChanged: (value) => context.read<AddPostCubit>().setPetsName(value),
+      onChanged: (value) {
+        context.read<AddPostCubit>().setPetName(value);
+      },
     );
   }
 }
@@ -94,7 +98,9 @@ class _PetCategorySelector extends StatelessWidget {
   Widget build(BuildContext context) {
     return PetCategorySelector(
       allOption: false,
-      onSelected: (PetCategory value) {},
+      onSelected: (PetCategory value) {
+        context.read<AddPostCubit>().setPetCategory(value);
+      },
     );
   }
 }
@@ -105,7 +111,9 @@ class _PetDescriptionTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PetDescriptionTextField(
-      onChanged: (value) {},
+      onChanged: (value) {
+        context.read<AddPostCubit>().setDescription(value);
+      },
     );
   }
 }
