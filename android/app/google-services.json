@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "428769673506",
+    "project_id": "petshare-2a385",
+    "storage_bucket": "petshare-2a385.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428769673506:android:62e0139d896af7ad06a57b",
+        "android_client_info": {
+          "package_name": "com.vasylieev.petshare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMHLZIzmiQyjsMCPR2LS7LApxCXiwpEBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
