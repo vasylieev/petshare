@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:petshare/src/core/injection_container.dart';
 import 'package:petshare/src/core/resources/enums.dart';
 import 'package:petshare/src/core/widgets/app_bars/title_app_bar.dart';
 import 'package:petshare/src/core/widgets/backgrounds/app_default_background.dart';
 import 'package:petshare/src/core/widgets/cateogry_selectors/pet_category_selector.dart';
 import 'package:petshare/src/core/widgets/slivers/sliver_sized_box.dart';
+import 'package:petshare/src/features/add_post/cubit/add_post_cubit.dart';
 import 'package:petshare/src/features/add_post/widgets/add_post_resources.dart';
 
 class AddPostScreen extends StatelessWidget {
@@ -11,7 +14,10 @@ class AddPostScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const _View();
+    return BlocProvider(
+      create: (context) => sl<AddPostCubit>(),
+      child: const _View(),
+    );
   }
 }
 
@@ -23,7 +29,6 @@ class _View extends StatelessWidget {
     return const AppDefaultBackground(
       padding: 0,
       child: Stack(
-        clipBehavior: Clip.none,
         children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 15),
@@ -65,7 +70,7 @@ class _PhotosListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PhotosListView(
+    return const PhotosListView(
       photos: [],
     );
   }
@@ -77,7 +82,7 @@ class _PetNameTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PetNameTextField(
-      onChanged: (value) {},
+      onChanged: (value) => context.read<AddPostCubit>().setPetsName(value),
     );
   }
 }
@@ -88,6 +93,7 @@ class _PetCategorySelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PetCategorySelector(
+      allOption: false,
       onSelected: (PetCategory value) {},
     );
   }

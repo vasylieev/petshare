@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:petshare/src/core/resources/enums.dart';
 import 'package:petshare/src/core/resources/resources.dart';
 import 'package:petshare/src/core/utils/app_icon.dart';
 
@@ -18,10 +17,14 @@ final Map<PetCategory, String> _categories = {
 class PetCategorySelector extends StatefulWidget {
   const PetCategorySelector({
     required this.onSelected,
+    this.border = true,
+    this.allOption = true,
     super.key,
   });
 
-  final Function(PetCategory) onSelected;
+  final void Function(PetCategory) onSelected;
+  final bool border;
+  final bool allOption;
 
   @override
   State<PetCategorySelector> createState() => _PetCategorySelectorState();
@@ -42,24 +45,32 @@ class _PetCategorySelectorState extends State<PetCategorySelector> {
               style: AppTextStyles.size12MediumBlack,
             ),
           ),
-          const SizedBox(height: 5),
+          const SizedBox(height: 3),
           SizedBox(
-            height: 44,
-            child: ListView.separated(
+            height: 46,
+            child: ListView.builder(
               clipBehavior: Clip.none,
               scrollDirection: Axis.horizontal,
               itemBuilder: (_, index) {
-                return _CategoryCard(
-                  category: _categories.keys.toList()[index],
-                  selected: _selectedIndex == index,
-                  onSelected: (category) {
-                    setState(() {
-                      _selectedIndex = _categories.keys.toList().indexOf(category);
-                    });
-                  },
-                );
+                final startingIndex = widget.allOption ? 0 : 1;
+                final keys = _categories.keys.toList();
+                if (index > startingIndex) {
+                  return _CategoryCard(
+                    category: keys[index],
+                    selected: _selectedIndex == index,
+                    border: widget.border,
+                    margin: index != keys.length - 1,
+                    onSelected: (category) {
+                      setState(() {
+                        _selectedIndex =
+                            _categories.keys.toList().indexOf(category);
+                      });
+                    },
+                  );
+                } else {
+                  return SizedBox();
+                }
               },
-              separatorBuilder: (_, __) => const SizedBox(width: 12),
               itemCount: _categories.keys.length,
             ),
           ),
@@ -74,11 +85,15 @@ class _CategoryCard extends StatelessWidget {
     required this.category,
     required this.onSelected,
     required this.selected,
+    required this.margin,
+    this.border = true,
   });
 
   final PetCategory category;
   final void Function(PetCategory) onSelected;
   final bool selected;
+  final bool border;
+  final bool margin;
 
   @override
   Widget build(BuildContext context) {
@@ -89,14 +104,17 @@ class _CategoryCard extends StatelessWidget {
           horizontal: 16,
           vertical: 8,
         ),
+        margin: EdgeInsets.only(right: margin ? 10 : 0),
         decoration: BoxDecoration(
           color: selected ? AppColors.accent : AppColors.white,
+          border: border ? Border.all(color: AppColors.inputGrey) : null,
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
-            BoxShadow(
-                color: AppColors.black.withOpacity(0.02),
-                blurRadius: 4,
-                offset: const Offset(0, 3))
+            if (!border) BoxShadow(
+              color: AppColors.black.withOpacity(0.02),
+              blurRadius: 4,
+              offset: const Offset(0, 3),
+            )
           ],
         ),
         child: Row(

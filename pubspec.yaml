@@ -46,6 +46,18 @@ dependencies:
   loading_animation_widget: ^1.2.1
   # custom_refresh_indicator
   custom_refresh_indicator: ^3.1.2
+  # firebase
+  firebase_core: ^2.27.0
+  cloud_firestore: ^4.15.8
+  firebase_auth: ^4.17.8
+  firebase_storage: ^11.6.9
+  # get_it
+  get_it: ^7.6.7
+  # bloc
+  bloc: ^8.1.4
+  flutter_bloc: ^8.1.6
+  # equatable
+  equatable: ^2.0.5
 
 dev_dependencies:
   flutter_test:
