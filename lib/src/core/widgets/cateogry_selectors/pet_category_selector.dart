@@ -68,7 +68,7 @@ class _PetCategorySelectorState extends State<PetCategorySelector> {
                     },
                   );
                 } else {
-                  return SizedBox();
+                  return const SizedBox();
                 }
               },
               itemCount: _categories.keys.length,

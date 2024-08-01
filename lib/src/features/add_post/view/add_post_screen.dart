@@ -37,6 +37,8 @@ class _View extends StatelessWidget {
                 SliverSizedBox(height: 70),
                 _PetNameTextField(),
                 SliverSizedBox(height: 10),
+                _AgeSelector(),
+                SliverSizedBox(height: 10),
                 _PetCategorySelector(),
                 SliverSizedBox(height: 15),
                 _PetDescriptionTextField(),
@@ -90,6 +92,16 @@ class _PetNameTextField extends StatelessWidget {
     );
   }
 }
+
+class _AgeSelector extends StatelessWidget {
+  const _AgeSelector();
+
+  @override
+  Widget build(BuildContext context) {
+    return AgeSelector();
+  }
+}
+
 
 class _PetCategorySelector extends StatelessWidget {
   const _PetCategorySelector();
