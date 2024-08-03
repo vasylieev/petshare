@@ -40,6 +40,8 @@ class _View extends StatelessWidget {
                 _AgeSelector(),
                 SliverSizedBox(height: 10),
                 _PetCategorySelector(),
+                SliverSizedBox(height: 10),
+                _BreedDropdown(),
                 SliverSizedBox(height: 15),
                 _PetDescriptionTextField(),
                 SliverSizedBox(height: 15),
@@ -98,10 +100,34 @@ class _AgeSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AgeSelector();
+    return AgeTextField(
+      onChanged: (value) {
+        context.read<AddPostCubit>().setPetAge(value);
+      },
+      onLabelChanged: (value) {
+        context.read<AddPostCubit>().setAgeLabel(value);
+      },
+    );
   }
 }
 
+class _BreedDropdown extends StatelessWidget {
+  const _BreedDropdown();
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<AddPostCubit, AddPostState>(
+      builder: (context, state) {
+        return BreedDropdown(
+          items: state.breedItems,
+          onChanged: (value) {
+            context.read<AddPostCubit>().setPetBreed(value);
+          },
+        );
+      },
+    );
+  }
+}
 
 class _PetCategorySelector extends StatelessWidget {
   const _PetCategorySelector();
@@ -111,7 +137,9 @@ class _PetCategorySelector extends StatelessWidget {
     return PetCategorySelector(
       allOption: false,
       onSelected: (PetCategory value) {
-        context.read<AddPostCubit>().setPetCategory(value);
+        context.read<AddPostCubit>()
+          ..setPetCategory(value)
+          ..setBreedItems(value);
       },
     );
   }

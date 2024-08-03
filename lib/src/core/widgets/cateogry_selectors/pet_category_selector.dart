@@ -34,6 +34,14 @@ class _PetCategorySelectorState extends State<PetCategorySelector> {
   int _selectedIndex = 0;
 
   @override
+  void initState() {
+    setState(() {
+      _selectedIndex = widget.allOption ? 0 : 1;
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: Column(
@@ -52,7 +60,7 @@ class _PetCategorySelectorState extends State<PetCategorySelector> {
               clipBehavior: Clip.none,
               scrollDirection: Axis.horizontal,
               itemBuilder: (_, index) {
-                final startingIndex = widget.allOption ? 0 : 1;
+                final startingIndex = widget.allOption ? -1 : 0;
                 final keys = _categories.keys.toList();
                 if (index > startingIndex) {
                   return _CategoryCard(
@@ -61,6 +69,7 @@ class _PetCategorySelectorState extends State<PetCategorySelector> {
                     border: widget.border,
                     margin: index != keys.length - 1,
                     onSelected: (category) {
+                      widget.onSelected(category);
                       setState(() {
                         _selectedIndex =
                             _categories.keys.toList().indexOf(category);

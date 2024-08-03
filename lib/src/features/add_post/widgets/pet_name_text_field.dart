@@ -13,6 +13,7 @@ class PetNameTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: AppTextField(
+        hintText: 'Write a name here...',
         onChanged: onChanged,
         label: 'Pet\'s Name',
       ),
